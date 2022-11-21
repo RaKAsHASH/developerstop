@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+
+{% block content %}
+{% if  not request.user.profile.id == profile.id %}
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="{% url 'user-profile' profile.id %}"><i class="im im-angle-left"></i></a>
+            <br>
+            
+            <form class="form" action="" method="POST">
+                {% csrf_token %}
+                {%  for field in form %}
+                
+                <div class="form__field">
+                    <label for="formInput#text">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Send" />
+            </form>
+        </div>
+    </div>
+</main>
+{% else %}
+<p style="color: Black;">This profile refers to you only</p>
+<strong>Redirecting....</strong>
+<meta http-equiv="refresh" content="5; url =/" />
+{% endif %}
+{% endblock content %}
