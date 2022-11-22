@@ -22,7 +22,7 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q4@tc_^w!oha5%ufvt7vz&jpuq3zbo20u)j_b@0macxsm!v(2q'
+SECRET_KEY =os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'projects.apps.ProjectsConfig',
     'users.apps.UsersConfig',
-    #'storages',
+    'storages',
 ]
 
 MIDDLEWARE = [
