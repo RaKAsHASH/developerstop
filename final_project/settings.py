@@ -22,7 +22,8 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =os.getenv('SECRET_KEY')
+SECRET_KEY ='django-insecure-q4@tc_^w!oha5%ufvt7vz&jpuq3zbo20u)j_b@0macxsm!v(2q'
+print(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -144,9 +145,11 @@ EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST ="smtp.gmail.com"
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
-EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
+#EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_USER='kunalsoni1001@gmail.com'
 print(EMAIL_HOST_USER)
-EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
+#EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD='fhhisdkjeqlydenp'
 print(EMAIL_HOST_PASSWORD)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
