@@ -26,9 +26,10 @@ SECRET_KEY ='django-insecure-q4@tc_^w!oha5%ufvt7vz&jpuq3zbo20u)j_b@0macxsm!v(2q'
 print(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','*']
+#ALLOWED_HOSTS = ['localhost','127.0.0.1','*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,28 +86,30 @@ WSGI_APPLICATION = 'final_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 
 #I cant figure out why but aws is charging for 
 # the free tier taht is i am using default 
 # database service 
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'aws_db',
-#        
-#        'HOST' :'database-1.cimey6c8eos8.ap-south-1.rds.amazonaws.com',
-#        'USER' : config('USER'),
-#        'PASSWORD':config('PASSWORD'),
-#        'PORT':'5432'
-#    }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'aws_db',
+        
+        'HOST' :'database-1.cimey6c8eos8.ap-south-1.rds.amazonaws.com',
+        #'USER' : config('USER'),
+        'USER' : 'harjeet',
+        #'PASSWORD':config('PASSWORD'),
+        'PASSWORD':'Qaz134esdr',
+        'PORT':'5432'
+    }
+}
 
 
 # Password validation
@@ -164,6 +167,18 @@ MEDIA_ROOT =os.path.join(BASE_DIR,'static/images')
 STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+
+
+AWS_ACCESS_KEY_ID='AKIAXQA5HY7HMLURP24U'
+AWS_SECRET_ACCESS_KEY='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'
+AWS_STORAGE_BUCKET_NAME='final-project-bucket-9'
+
+
+
+
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
