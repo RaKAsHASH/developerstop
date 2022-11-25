@@ -12,18 +12,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY ='django-insecure-q4@tc_^w!oha5%ufvt7vz&jpuq3zbo20u)j_b@0macxsm!v(2q'
 SECRET_KEY =config("SECRET_KEY")
 print(SECRET_KEY)
 
@@ -106,9 +102,7 @@ DATABASES = {
         
         'HOST' :'database-1.cimey6c8eos8.ap-south-1.rds.amazonaws.com',
         'USER' : config('USER'),
-        #'USER' : 'harjeet',
         'PASSWORD':config('PASSWORD'),
-        #'PASSWORD':'Qaz134esdr',
         'PORT':'5432'
     }
 }
@@ -151,11 +145,8 @@ EMAIL_HOST ="smtp.gmail.com"
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER=config('EMAIL_HOST_USER')
-#EMAIL_HOST_USER='kunalsoni1001@gmail.com'
-print(EMAIL_HOST_USER)
+
 EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
-#EMAIL_HOST_PASSWORD='fhhisdkjeqlydenp'
-print(EMAIL_HOST_PASSWORD)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -172,9 +163,9 @@ STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
 
 
 
-AWS_ACCESS_KEY_ID='AKIAXQA5HY7HMLURP24U'
-AWS_SECRET_ACCESS_KEY='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'
-AWS_STORAGE_BUCKET_NAME='final-project-bucket-9'
+AWS_ACCESS_KEY_ID=config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY=config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME=config('AWS_STORAGE_BUCKET_NAME')
 
 AWS_S3_REGION_NAME = "ap-south-1"
 AWS_S3_FILE_OVERWRITE = False
